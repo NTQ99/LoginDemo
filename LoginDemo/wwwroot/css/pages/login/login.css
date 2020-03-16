@@ -5,6 +5,7 @@
 
 /*Main content*/
 .main-content {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,9 +14,34 @@
 }
 /*Login box*/
     .main-content .login-box {
-        width: 500px;
-        height: 300px;
+        position: relative;
+        width: 400px;
+        height: 200px;
+        padding: 50px;
         border-radius: 5px;
         box-shadow: #00000066 0px 0px 30px;
+        display: flex;
+        align-items: center;
     }
+        .main-content .login-box .login-title {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .main-content .login-box .login-element {
+            width: 380px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+            .main-content .login-element input {
+                width: 250px;
+                height: 30px;
+            }
+            .main-content .login-element button {
+                width: 80px;
+                height: 30px;
+            }
 /*Footer*/

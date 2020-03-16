@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     var login = new Login();
-    $('#loginForm').on('submit', login.checkPassword);
+    $('#registerForm').on('submit', login.checkPassword);
 });
 /**
  * Web login
@@ -9,7 +9,7 @@
 class Login {
     constructor() { };
     checkPassword() {
-        var obj = $('#loginForm').serializeArray();
+        var obj = $('#registerForm').serializeArray();
         var data = {
             "Username": obj[0].value,
             "Password": obj[1].value
