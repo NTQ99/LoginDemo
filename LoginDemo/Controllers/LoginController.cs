@@ -12,13 +12,6 @@ namespace LoginDemo.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        List<UserData> userDatas = UserData.userDatas;
-        // GET: api/Login
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
         /// <summary>
         /// Login, check thông tin login
         /// </summary>
@@ -26,33 +19,28 @@ namespace LoginDemo.Controllers
         /// <returns> username của người dùng </returns>
         /// CreatedBy: NTQ (16/03/2020)
         // GET: api/Login/ntquoc
-        [HttpGet("{username}", Name = "Get")]
-        public string Get(string username)
+        [HttpGet("{username}/{password}")]
+        public bool Get(string username, string password)
         {
-            return username;
+            var resUser = UserData.GetUser(username);
+            if (resUser == null || resUser.Password != password) return false;
+            return true;
         }
         /// <summary>
-        /// 
+        /// register user mới
         /// </summary>
-        /// <param name="value"></param>
-        // POST: api/Login
+        /// <param name="user"></param>
+        /// <returns></returns>
         [HttpPost]
         public bool Post([FromBody] UserData user)
         {
-            if (user.Username == userDatas[0].Username && user.Password == userDatas[0].Password) return true;
+            var resUser = UserData.GetUser(user.Username);
+            if (resUser == null)
+            {
+                UserData.userDatas.Add(user);
+                return true;
+            }
             return false;
-        }
-
-        // PUT: api/Login/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

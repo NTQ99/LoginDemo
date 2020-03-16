@@ -12,6 +12,9 @@ namespace LoginDemo.Models
     public class UserData
     {
         #region "Declare/Field"
+        /// <summary>
+        /// List users
+        /// </summary>
         public static List<UserData> userDatas = new List<UserData>()
         {
             new UserData() {Username = "ntquoc", Password = "123"}
@@ -26,7 +29,17 @@ namespace LoginDemo.Models
         /// Mật khẩu
         /// </summary>
         public string Password { get; set; }
-
+        #endregion
+        #region "Function/Method"
+        /// <summary>
+        /// Get dữ liệu user khi đăng nhập
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public static UserData GetUser(string username)
+        {
+            return UserData.userDatas.Where(u => u.Username == username).FirstOrDefault();
+        }
         #endregion
     }
 }

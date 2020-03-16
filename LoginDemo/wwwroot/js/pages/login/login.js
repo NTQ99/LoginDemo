@@ -15,13 +15,10 @@ class Login {
             "Password": obj[1].value
         }
         $.ajax({
-            type: 'POST',
-            url: 'https://localhost:44394/api/login',
-            dataType: 'json',
-            data: JSON.stringify(data),
-            contentType: 'application/json',
+            type: 'GET',
+            url: `https://localhost:44394/api/login/${data.Username}/${data.Password}`,
             success: function (res) {
-                res = (res === true) ? "Login succesful!" : "Login unsuccesful!";
+                res = (res === true) ? "Login succesful!" : "Login fail!";
                 alert(res)
             }
         });

@@ -21,8 +21,9 @@ class Login {
             data: JSON.stringify(data),
             contentType: 'application/json',
             success: function (res) {
-                res = (res === true) ? "Login succesful!" : "Login unsuccesful!";
-                alert(res)
+                res = (res === true) ? "Register succesful!" : "Register fail!";
+                alert(res);
+                window.location.replace("../login/login.html");
             }
         });
     };
