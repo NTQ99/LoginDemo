@@ -1,0 +1,21 @@
+﻿body {
+    margin: 0;
+}
+/*Header*/
+
+/*Main content*/
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+/*Login box*/
+    .main-content .login-box {
+        width: 500px;
+        height: 300px;
+        border-radius: 5px;
+        box-shadow: #00000066 0px 0px 30px;
+    }
+/*Footer*/
